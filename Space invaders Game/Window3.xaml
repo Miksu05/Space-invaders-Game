@@ -1,0 +1,22 @@
+﻿<Window x:Class="Space_invaders_Game.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Space_invaders_Game"
+        mc:Ignorable="d"
+        Title="Window3" Height="450" Width="800">
+    <Canvas Name="PAUSED" Focusable="True" Background="Black" Margin="0,0,0,-6">
+
+        <Label Name="Spaceinvaders" Foreground="White" FontSize="16" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="362" Height="60" Width="208" Canvas.Top="103">PAUSED</Label>
+
+        <Button Content="Back"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="362" Canvas.Top="184" Height="36" Width="76" Click="OpenWindowBACK" HorizontalAlignment="Left" VerticalAlignment="Top"></Button>
+
+        <Button Content="Options"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="362" Canvas.Top="238" Height="36" Width="76" Click="OpenWindowOPTIONS" HorizontalAlignment="Left" VerticalAlignment="Top">
+        </Button>
+
+        <Button Content="MainMenu"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="334" Canvas.Top="293" Height="36" Width="132" Click="OpenWindowMAINWINDOW" HorizontalAlignment="Left" VerticalAlignment="Top">
+        </Button>
+
+    </Canvas>
+</Window>
