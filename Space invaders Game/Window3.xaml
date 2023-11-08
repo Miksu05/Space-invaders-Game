@@ -10,13 +10,18 @@
 
         <Label Name="Spaceinvaders" Foreground="White" FontSize="16" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="362" Height="60" Width="208" Canvas.Top="103">PAUSED</Label>
 
-        <Button Content="Back"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="362" Canvas.Top="184" Height="36" Width="76" Click="OpenWindowBACK" HorizontalAlignment="Left" VerticalAlignment="Top"></Button>
+        <Button Content="Back"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="321" Canvas.Top="184" Height="36" Width="76" Click="OpenWindowBACK" HorizontalAlignment="Left" VerticalAlignment="Center"></Button>
 
         <Button Content="Options"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="362" Canvas.Top="238" Height="36" Width="76" Click="OpenWindowOPTIONS" HorizontalAlignment="Left" VerticalAlignment="Top">
         </Button>
 
         <Button Content="MainMenu"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="334" Canvas.Top="293" Height="36" Width="132" Click="OpenWindowMAINWINDOW" HorizontalAlignment="Left" VerticalAlignment="Top">
         </Button>
+        <Button Content="aloita uudelleen"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="402" Canvas.Top="184" Height="36" Width="128" Click="OpenWindowBACK" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Label Name="enemiesKilled" Foreground="White" FontSize="16" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Top">Enemies Killed: 0</Label>
+
+        <Label Name="TIMEPLAYED" Foreground="White" FontSize="16" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="674">Time Played: 0</Label>
 
     </Canvas>
 </Window>

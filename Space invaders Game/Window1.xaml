@@ -15,6 +15,7 @@
         <Button Content="Play"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="362" Canvas.Top="266" Height="36" Width="76" Click="OpenWindow"></Button>
         <Button Content="Options"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="362" Canvas.Top="322" Height="36" Width="76" Click="OpenWindowOptions" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
         <Button Content="Quit"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="362" Canvas.Top="380" Height="36" Width="76" Click="OpenWindowQuit" HorizontalAlignment="Left" VerticalAlignment="Center"></Button>
+        <Button Content="DEV"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="714" Canvas.Top="444" Height="36" Width="76" Click="DEV" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
 
     </Canvas>

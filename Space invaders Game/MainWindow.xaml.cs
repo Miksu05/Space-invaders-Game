@@ -38,7 +38,7 @@ namespace Space_invaders_Game
         bool goLeft, goRight;
 
         List<Rectangle> itemsToRemove = new List<Rectangle>();
-
+        Window4 Window4;
 
         int enemyImages = 0;
         int bulletTimer = 0;
@@ -57,6 +57,8 @@ namespace Space_invaders_Game
 
         public MainWindow()
         {
+
+
             InitializeComponent();
 
 
@@ -97,8 +99,15 @@ namespace Space_invaders_Game
 
         private void GameLoop(object sender, EventArgs e)
         {
-
-            Rect playerHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
+            if (Window4.NOdeath == true)
+            {
+                Rect playerHitBox = new Rect(Canvas.GetLeft(player), Canvas.GetTop(player), player.Width, player.Height);
+            }
+            else
+            {
+                return;
+            }
+            
             enemiesLeft.Content = "Enemies Left: " + totalEnemies;
 
             if (goLeft == true && Canvas.GetLeft(player) > 0)
@@ -189,12 +198,7 @@ namespace Space_invaders_Game
 
                     Rect enemyHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                    if (playerHitBox.IntersectsWith(enemyHitBox))
-                    {
-                        showGameOver("You were killed by the invaders!");
-                        //lisää ääni
-                        
-                    }
+
 
                 }
                 if (x is Rectangle && (string)x.Tag == "enemyBullet")
@@ -208,10 +212,7 @@ namespace Space_invaders_Game
 
                     Rect enemyBulletHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                    if (playerHitBox.IntersectsWith(enemyBulletHitBox))
-                    {
-                        showGameOver("You were killed by the bullet!");
-                    }
+  
                 }
             }
             if (enemyHitWall == true)
@@ -313,27 +314,35 @@ namespace Space_invaders_Game
 
         
 
-        private void enemyBulletMaker(double x, double y)
+        public void enemyBulletMaker(double x, double y)
         {
-
-            Rectangle newEnemyBullet = new Rectangle
+            if (Window4.NOENEMIES == true)
             {
 
-                Tag = "enemyBullet",
-                Height = 40,
-                Width = 15,
-                Fill = Brushes.Yellow,
-                Stroke = Brushes.Black,
-                StrokeThickness = 5
+                Rectangle newEnemyBullet = new Rectangle
+                {
 
-            };
+                    Tag = "enemyBullet",
+                    Height = 40,
+                    Width = 15,
+                    Fill = Brushes.Yellow,
+                    Stroke = Brushes.Black,
+                    StrokeThickness = 5
+
+                };
 
 
-            Canvas.SetTop(newEnemyBullet, y);
-            Canvas.SetLeft(newEnemyBullet, x);
+                Canvas.SetTop(newEnemyBullet, y);
+                Canvas.SetLeft(newEnemyBullet, x);
 
-            myCanvas.Children.Add(newEnemyBullet);
+                myCanvas.Children.Add(newEnemyBullet);
 
+
+            }
+            else
+            {
+                return;
+            }
 
 
 
@@ -341,75 +350,82 @@ namespace Space_invaders_Game
 
         }
 
-        private void makeEnemies(int limit)
+        public void makeEnemies(int limit)
         {
-            
+            if (Window4.NOENEMIES == true)
+            { 
         
 
-            totalEnemies = limit;
-            for (int rivi = 0; rivi < 4; rivi++)
-            {
-                int top = 10 + rivi * 90;
-                int left = 10;
-
-                for (int i = 0; i < limit; i++)
+                totalEnemies = limit;
+                for (int rivi = 0; rivi < 4; rivi++)
                 {
+                    int top = 10 + rivi * 90;
+                    int left = 10;
 
-                    ImageBrush enemySkin = new ImageBrush();
-
-                    Rectangle newEnemy = new Rectangle
+                    for (int i = 0; i < limit; i++)
                     {
-                        Tag = "enemy",
-                        Height = 45,
-                        Width = 45,
-                        Fill = enemySkin
-                    };
 
-                    Canvas.SetTop(newEnemy, top);
-                    Canvas.SetLeft(newEnemy, left);
-                    myCanvas.Children.Add(newEnemy);
-                    left += 60;
+                        ImageBrush enemySkin = new ImageBrush();
+
+                        Rectangle newEnemy = new Rectangle
+                        {
+                            Tag = "enemy",
+                            Height = 45,
+                            Width = 45,
+                            Fill = enemySkin
+                        };
+
+                        Canvas.SetTop(newEnemy, top);
+                        Canvas.SetLeft(newEnemy, left);
+                        myCanvas.Children.Add(newEnemy);
+                        left += 60;
                     
 
 
-                    enemyImages++;
+                        enemyImages++;
 
-                    if (enemyImages > 8)
-                    {
-                        enemyImages = 1;
-                    }
+                        if (enemyImages > 8)
+                        {
+                            enemyImages = 1;
+                        }
 
-                    switch (enemyImages)
-                    {
-                        case 1:
-                            enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader1.gif"));
-                            break;
-                        case 2:
-                            enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader2.gif"));
-                            break;
-                        case 3:
-                            enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader3.gif"));
-                            break;
-                        case 4:
-                            enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader4.gif"));
-                            break;
-                        case 5:
-                            enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader5.gif"));
-                            break;
-                        case 6:
-                            enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader6.gif"));
-                            break;
-                        case 7:
-                            enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader7.gif"));
-                            break;
-                        case 8:
-                            enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader8.gif"));
-                            break;
+                        switch (enemyImages)
+                        {
+                            case 1:
+                                enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader1.gif"));
+                                break;
+                            case 2:
+                                enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader2.gif"));
+                                break;
+                            case 3:
+                                enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader3.gif"));
+                                break;
+                            case 4:
+                                enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader4.gif"));
+                                break;
+                            case 5:
+                                enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader5.gif"));
+                                break;
+                            case 6:
+                                enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader6.gif"));
+                                break;
+                            case 7:
+                                enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader7.gif"));
+                                break;
+                            case 8:
+                                enemySkin.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/invader8.gif"));
+                                break;
+
+                        }
                     }
 
 
 
                 }
+            }
+            else
+            {
+                return;
             }
         }
         private void showGameOver(string msg)

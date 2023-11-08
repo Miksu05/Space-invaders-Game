@@ -1,0 +1,22 @@
+﻿<Window x:Class="Space_invaders_Game.Window4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Space_invaders_Game"
+        mc:Ignorable="d"
+        Title="Window4" Height="450" Width="800">
+    <Canvas Name="PAUSED" Focusable="True" Background="Black" Margin="0,0,0,-6">
+
+        <Button Content="Reset game"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="342" Canvas.Top="47" Height="36" Width="116" Click="RESETGAME" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="Back"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="10" Canvas.Top="10" Height="36" Width="76" Click="BACKK" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Content="No enemies"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="342" Canvas.Top="106" Height="36" Width="116" Click="Noenemies" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button Content="No death"  Foreground="Black" FontSize="16" FontWeight="ExtraBold" Canvas.Left="362" Canvas.Top="165" Height="36" Width="76" Click="NODEATH" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+
+
+
+
+    </Canvas>
+</Window>

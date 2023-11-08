@@ -21,7 +21,7 @@ namespace Space_invaders_Game
     
     public partial class Window1 : Window
     {
-        SoundPlayer testPlayer;
+        public SoundPlayer testPlayer;
         public Window1()
         {
             InitializeComponent();
@@ -60,6 +60,15 @@ namespace Space_invaders_Game
 
             Window2 Main3 = new Window2();
             Main3.Show();
+            this.Close();
+        }
+
+        private void DEV(object sender, RoutedEventArgs e)
+        {
+            testPlayer.Stop();
+
+            Window4 main4 = new Window4();  
+            main4.Show();
             this.Close();
         }
     }
